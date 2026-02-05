@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSICSFITT | A Cosmic Odyssey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Cinzel+Decorative:wght@400;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-space: #020205;
+            --neon-purple: #7000ff;
+            --electric-cyan: #00f2ff;
+            --magenta-glow: #ff00ff;
+            --starlight: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--deep-space);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            perspective: 2000px;
+        }
+
+        .font-futuristic { font-family: 'Space Grotesk', sans-serif; }
+        
+        .font-mystery {
+            font-family: 'Mrs+Saint+Delafield', cursive;
+            font-size: 1.4rem;
+            letter-spacing: 0.1em;
+            opacity: 0.08;
+            filter: blur(1.2px) brightness(0.8);
+            user-select: none;
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+            pointer-events: none;
+        }
+        
+        .font-mystery:hover {
+            opacity: 0.2;
+            filter: blur(0px) brightness(1);
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(30px) saturate(150%);
+            -webkit-backdrop-filter: blur(30px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
+        }
+
+        .cinematic-vignette {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 40;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(112, 0, 255, 0.4), 0 0 40px rgba(0, 242, 255, 0.2);
+        }
+
+        .pov-frame {
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform-style: preserve-3d;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 100;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+        }
+
+        ::-webkit-scrollbar { width: 3px; }
+        ::-webkit-scrollbar-track { background: var(--deep-space); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, transparent, var(--neon-purple), var(--electric-cyan), transparent); border-radius: 10px; }
+
+        .reveal-up {
+            animation: revealUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(50px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom": "https://esm.sh/react-dom@^19.2.4",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.4/client",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="root"></div>
+    <div class="grain"></div>
+    <div class="cinematic-vignette"></div>
+</body>
+</html>
